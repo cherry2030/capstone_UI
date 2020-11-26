@@ -1178,9 +1178,11 @@ public class IntroManager : MonoBehaviour
     public Scrollbar ScrollbarVertical_Search_Result;
     public void ScrollMoreFurn()
     {
-        if (ScrollbarVertical_Search_Result.value <= 0.05)
-        {
-            PushMoreFurnButton();
+        Debug.Log(ScrollbarVertical_Search_Result.value*100.00f);
+
+        if (ScrollbarVertical_Search_Result.transform.GetComponent<Scrollbar>().value<= 0.05f)
+        {            
+            //PushMoreFurnButton();
         }    
     }
 }
