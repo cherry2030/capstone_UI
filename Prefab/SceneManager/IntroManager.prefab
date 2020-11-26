@@ -45,11 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LogInPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
     type: 3}
-  NowPanel: {fileID: 3444763030726414726, guid: 3c5cf87e68b08ae4f96beee85be98712,
+  NowPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
     type: 3}
-  LastPanel: {fileID: 3444763030726414726, guid: 3c5cf87e68b08ae4f96beee85be98712,
+  LastPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
     type: 3}
-  BeforeBottomPanelChoose: {fileID: 3133453501999187168, guid: 8b38e4c7e4d3bae4d932222636db28fc,
+  BeforeBottomPanelChoose: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
     type: 3}
   LogReadyPanel: {fileID: 4045669739388056364, guid: 8239e0d4979a18c42b775f42ea98ee1f,
     type: 3}
@@ -275,11 +275,7 @@ MonoBehaviour:
   - divide
   - mirror
   - etc
-  temp_category:
-  - bedroom
-  - living room
-  - kitchen
-  - anywhere
+  temp_category: []
   TopCategory: space
   middleCategory: 
   bottomCategory: 
@@ -304,3 +300,4 @@ MonoBehaviour:
     type: 3}
   SearchResultTitleText: {fileID: 8996458897729147493, guid: e5411e250cf9b4b499cddbd33e4a2bfc,
     type: 3}
+  ScrollbarVertical_Search_Result: {fileID: 0}
