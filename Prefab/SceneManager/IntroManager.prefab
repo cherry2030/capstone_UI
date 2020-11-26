@@ -275,12 +275,8 @@ MonoBehaviour:
   - divide
   - mirror
   - etc
-  temp_category:
-  - bedroom
-  - living room
-  - kitchen
-  - anywhere
-  TopCategory: space
+  temp_category: []
+  TopCategory: 0
   middleCategory: 
   bottomCategory: 
   ParentsOfmiddleCategoryButton: {fileID: 1358582094220993166, guid: ebe43501915f3ec42bf1f8504531a5ed,

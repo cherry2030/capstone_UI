@@ -617,7 +617,6 @@ public class IntroManager : MonoBehaviour
     {
         OpenUserInfoPanel();
         OpenUserInfoPanel1();
-
     }
 
     public void OnLogin()
@@ -650,7 +649,6 @@ public class IntroManager : MonoBehaviour
                 }
             });
         }
-
 #else
               OpenUserInfoPanel();
               OpenUserInfoPanel1();
@@ -660,7 +658,6 @@ public class IntroManager : MonoBehaviour
         while (string.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
             yield return null;
         string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
-
 
         Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
 
@@ -928,7 +925,8 @@ public class IntroManager : MonoBehaviour
                 Debug.Log(i + "middlecategory 초기화 ㅍ괴 " + middleCategoryButton.Length);
                 Destroy(middleCategoryButton[i].gameObject);
                 middleCategoryButton[i] = null;
-                //temp_category[i] = null;
+                temp_category[i] = null;
+                temp_category = new string[0];
             }
         }        
 
@@ -1024,25 +1022,21 @@ public class IntroManager : MonoBehaviour
             {
                 DataSnapshot snapshot = task.Result;
                 //Debug.Log(snapshot.Value.ToString());
-
                 foreach (var childSnapshot in snapshot.Children)
                 {
                    // Debug.Log(" foreach 들어왓다  " + childSnapshot.Child(TopCategory).Value.ToString());
                     if (childSnapshot.Child(TopCategory).Value.ToString() == _searchResultName)
                     {
                         Debug.Log(" foreach  if문 들어왓다  "+childSnapshot.Child(TopCategory).Value.ToString());
-                        //ResultFurnList.Add(Instantiate(resultButtonPrefab));
                         ResultFurnList_Image.Add(childSnapshot.Child("image").Value.ToString());
                         Debug.Log(childSnapshot.Child("image").Value.ToString() + childSnapshot.Child("furniture_name").Value.ToString());
                         ResultFurnList_name.Add(childSnapshot.Child("furniture_name").Value.ToString());
-                        //ResultFurnList_Like.Add(Instantiate(resultButtonPrefab));
                     }
                 }                
             }
             PushMoreFurnButton();
             LoadingImage.SetActive(false);
-        });
-        
+        });        
     }
     const long maxAllowedSize = 1 * 1024 * 1024;
     public void PushMoreFurnButton()
@@ -1143,10 +1137,9 @@ public class IntroManager : MonoBehaviour
 
         LoadingImage.SetActive(true);
         ResultFurnList.Add(Instantiate(resultButtonPrefab));
-
         
         ResultFurnList[i].transform.SetParent(ParentsOfResultFurnitureButton.transform);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         Debug.Log("IEnumerator ResultInstantiate child snapshot prefab부름?" + i);
         ResultFurnList[i].name = ResultFurnList_name[i]; ;
         ResultFurnList[i].gameObject.SetActive(true);
@@ -1188,10 +1181,6 @@ public class IntroManager : MonoBehaviour
         if (ScrollbarVertical_Search_Result.value >= 0.99)
         {
             PushMoreFurnButton();
-        }
-    
+        }    
     }
-
-
-
 }

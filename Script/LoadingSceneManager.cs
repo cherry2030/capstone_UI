@@ -14,17 +14,13 @@ public class LoadingSceneManager : MonoBehaviour
     }
 
     public static void LoadScene(string sceneName)
-
     {
-
         nextScene = sceneName;
         SceneManager.LoadScene("LoadingScene");
-
     }
 
     IEnumerator LoadScene()
     {
-
         yield return null;
 
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
