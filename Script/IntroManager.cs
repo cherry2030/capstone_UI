@@ -718,7 +718,7 @@ public class IntroManager : MonoBehaviour
           //로그인 체크후 로그인 처음부터할꺼면 이거하고 아니면 말고
        LogChange(IsLogIn);
 #elif UNITY_EDITOR
-        OpenLogReadyPanel();
+        //OpenLogReadyPanel();
         //OpenUserInfoPanel();
          //OpenUserInfoPanel1();
 #endif
@@ -1099,9 +1099,7 @@ public class IntroManager : MonoBehaviour
                 */
             }
             categorySearchIndex = ResultFurnList_name.Count;
-        }
-
-        
+        }        
         ParentsOfResultFurnitureButton.gameObject.SetActive(true);
     }
     Texture2D texture;
@@ -1183,4 +1181,17 @@ public class IntroManager : MonoBehaviour
         });
     }
     */
+
+    public Scrollbar ScrollbarVertical_Search_Result;
+    public void ScrollMoreFurn()
+    {
+        if (ScrollbarVertical_Search_Result.value >= 0.99)
+        {
+            PushMoreFurnButton();
+        }
+    
+    }
+
+
+
 }

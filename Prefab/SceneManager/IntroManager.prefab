@@ -304,3 +304,5 @@ MonoBehaviour:
     type: 3}
   SearchResultTitleText: {fileID: 8996458897729147493, guid: e5411e250cf9b4b499cddbd33e4a2bfc,
     type: 3}
+  ScrollbarVertical_Search_Result: {fileID: 1993283630289095433, guid: d42f0211ae7df604db7c3097e31937a7,
+    type: 3}
