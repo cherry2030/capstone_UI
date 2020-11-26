@@ -1178,7 +1178,7 @@ public class IntroManager : MonoBehaviour
     public Scrollbar ScrollbarVertical_Search_Result;
     public void ScrollMoreFurn()
     {
-        if (ScrollbarVertical_Search_Result.value >= 0.99)
+        if (ScrollbarVertical_Search_Result.value <= 0.05)
         {
             PushMoreFurnButton();
         }    
