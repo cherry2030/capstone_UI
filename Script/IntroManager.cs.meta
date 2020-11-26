@@ -1,0 +1,59 @@
+fileFormatVersion: 2
+guid: 774660752c7968646ab687a1ef83c7f8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - LogInPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
+      type: 3}
+  - NowPanel: {instanceID: 0}
+  - LastPanel: {instanceID: 0}
+  - BeforeBottomPanelChoose: {instanceID: 0}
+  - LogReadyPanel: {instanceID: 0}
+  - UserInfoPanel1: {fileID: 4818165516758147465, guid: 3d943c4beafe9b944bd6b4465e057a5e,
+      type: 3}
+  - UserInfoPanel2: {fileID: 3975158000818647833, guid: 4c86c82d04fef444f87e0f4b4c9f6d1f,
+      type: 3}
+  - UserInfoPanel3: {fileID: 829676339837622741, guid: 10f6e50b9249e5f4e86fc636291b0220,
+      type: 3}
+  - BottomBarPanel: {fileID: 3133453501999187168, guid: 8b38e4c7e4d3bae4d932222636db28fc,
+      type: 3}
+  - RcmFurnPanel: {fileID: 570056399741364575, guid: 82cc008112312ce4b94c6f1a5036103e,
+      type: 3}
+  - SearchPanel: {fileID: 5681784849700198155, guid: a29be1417ee6daa43a9b613c5f072625,
+      type: 3}
+  - MyPagePanel: {fileID: 3347226499357855557, guid: fe684d304ca8b124dbe551ab51f8af54,
+      type: 3}
+  - SearchResultPanel: {fileID: 6734759479480686379, guid: 175d8eca367f6334da8273555272f62a,
+      type: 3}
+  - MyLikePanel: {instanceID: 0}
+  - MySettingPanel: {instanceID: 0}
+  - MyAboutPanel: {instanceID: 0}
+  - FurnitureInfoPanel: {instanceID: 0}
+  - user_name_Text: {instanceID: 0}
+  - user_age_Text: {instanceID: 0}
+  - manButton: {instanceID: 0}
+  - womanButton: {instanceID: 0}
+  - OneRoomButton: {instanceID: 0}
+  - TwoRoomButton: {instanceID: 0}
+  - ETCRoomButton: {instanceID: 0}
+  - MySetting_manButton: {instanceID: 0}
+  - MySetting_womanButton: {instanceID: 0}
+  - MySetting_OneRoomButton: {instanceID: 0}
+  - MySetting_TwoRoomButton: {instanceID: 0}
+  - MySetting_ETCRoomButton: {instanceID: 0}
+  - user_housesize_Text: {instanceID: 0}
+  - UserInfoReadyButton: {instanceID: 0}
+  - ImageUploadButton: {instanceID: 0}
+  - WarningInfoWritePanel: {fileID: 5683111835218962433, guid: 74d67d8e4ddc19148bdbf8a089f38050,
+      type: 3}
+  - WarningNetwrokPanel: {fileID: 8414922177277013147, guid: bbb8a25ad01196841885851492facbb9,
+      type: 3}
+  - RcmFurnButton: {instanceID: 0}
+  - SearchButton: {instanceID: 0}
+  - MyPageButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
