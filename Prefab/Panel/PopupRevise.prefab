@@ -268,7 +268,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8379716950239372642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3855674874665911394, guid: 20b5e0aef1f37bf4e91f5b07915f1623,
+          type: 3}
+        m_MethodName: QuitWarnigPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8379716950793248498
 GameObject:
   m_ObjectHideFlags: 0
