@@ -1,0 +1,303 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3855674874665911395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3855674874665911393}
+  - component: {fileID: 3855674874665911394}
+  m_Layer: 0
+  m_Name: IntroManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3855674874665911393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855674874665911395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 364.5, y: 407.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3855674874665911394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855674874665911395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774660752c7968646ab687a1ef83c7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LogInPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
+    type: 3}
+  NowPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
+    type: 3}
+  LastPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
+    type: 3}
+  BeforeBottomPanelChoose: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
+    type: 3}
+  LogReadyPanel: {fileID: 4045669739388056364, guid: 8239e0d4979a18c42b775f42ea98ee1f,
+    type: 3}
+  UserInfoPanel1: {fileID: 4818165516758147465, guid: 3d943c4beafe9b944bd6b4465e057a5e,
+    type: 3}
+  UserInfoPanel2: {fileID: 3975158000818647833, guid: 4c86c82d04fef444f87e0f4b4c9f6d1f,
+    type: 3}
+  UserInfoPanel3: {fileID: 829676339837622741, guid: 10f6e50b9249e5f4e86fc636291b0220,
+    type: 3}
+  BottomBarPanel: {fileID: 3133453501999187168, guid: 8b38e4c7e4d3bae4d932222636db28fc,
+    type: 3}
+  RcmFurnPanel: {fileID: 570056399741364575, guid: 82cc008112312ce4b94c6f1a5036103e,
+    type: 3}
+  SearchPanel: {fileID: 5681784849700198155, guid: a29be1417ee6daa43a9b613c5f072625,
+    type: 3}
+  MyPagePanel: {fileID: 3347226499357855557, guid: fe684d304ca8b124dbe551ab51f8af54,
+    type: 3}
+  SearchResultPanel: {fileID: 3444763030726414726, guid: 3c5cf87e68b08ae4f96beee85be98712,
+    type: 3}
+  MyLikePanel: {fileID: 3663240738102210251, guid: 7102a0d9762318a4aaf6068728c5f27a,
+    type: 3}
+  MySettingPanel: {fileID: 5272225239148891646, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+    type: 3}
+  MyAboutPanel: {fileID: 1712695494446835495, guid: 00550d0909d0e4049a118bf657e41a25,
+    type: 3}
+  FurnitureInfoPanel: {fileID: 5572401107160331463, guid: 02dc5a9d84c96d14a85c73904cb10180,
+    type: 3}
+  LoadingImage: {fileID: 1173278197256052202, guid: f61b4ef605e62264fa980f43715c1fe7,
+    type: 3}
+  user_name_Text: {fileID: 4615997768981686901, guid: f951a0f66e0c273499857dc326f70a39,
+    type: 3}
+  user_name_temp: 
+  user_email_temp: 
+  user_age_Text: {fileID: 3978268838613869649, guid: f0116c38df47f004c848b81c9c88cb39,
+    type: 3}
+  user_age_temp: 
+  user_sex_temp: 
+  SelectButtonColor: {r: 0.3764706, g: 0.49019608, b: 0.54509807, a: 1}
+  DeselectButtonColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  manButton: {fileID: 5810655698973180710, guid: 0c1706feb4d817041a551634baff47ef,
+    type: 3}
+  womanButton: {fileID: 2734287107383551746, guid: 583df141dba78ad43bbb84e7dcbeccff,
+    type: 3}
+  cb_manButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  cb_womanButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  OneRoomButton: {fileID: 5581242132143239040, guid: f940d6cc6e97bac4d8b54ce2e90dbf8e,
+    type: 3}
+  TwoRoomButton: {fileID: 7366266743049987785, guid: 9dd8773f3f83b2c4d8cd7ba2f7662427,
+    type: 3}
+  ETCRoomButton: {fileID: 3438396797056776967, guid: fdfe494ed6c20e0459f13de7c61f6a35,
+    type: 3}
+  cb_OneRoomButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  cb_TwoRoomButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  cb_ETCRoomButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  user_roomtype_temp: 
+  MySetting_manButton: {fileID: 5274499199520361221, guid: 4c9143b67cb254344b537b73b3bd8756,
+    type: 3}
+  MySetting_womanButton: {fileID: 548657144596657342, guid: 3282467f1b735c047aea38aee935f8ee,
+    type: 3}
+  MySetting_OneRoomButton: {fileID: 8035409134861227993, guid: de5461f37f1fdfa4597fe28d750a7c50,
+    type: 3}
+  MySetting_TwoRoomButton: {fileID: 2951200657541897347, guid: 830615a4119f2b74f95ac603337e3c6d,
+    type: 3}
+  MySetting_ETCRoomButton: {fileID: 872417003233594255, guid: 663ff85e7db66b84299d7dda5b6e7161,
+    type: 3}
+  user_housesize_Text: {fileID: 2378326585866654528, guid: 43ef72e892084164fa8f7ac10d19416e,
+    type: 3}
+  user_housesize_temp: 
+  LikeMoodButton:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  LikeMoodButtonText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  UserInfoReadyButton: {fileID: 0}
+  ImageUploadButton: {fileID: 0}
+  user_likemood_temp: 
+  userNum: 1
+  WarnNoResultFurniture: {fileID: 2850058440961300965, guid: cf23e84a9bfa28e48aabde9a87c05876,
+    type: 3}
+  PopupEndRevise: {fileID: 8379716949935275288, guid: 40619cf9a0a1035479d96207bb173d0d,
+    type: 3}
+  WarnNoInsertInfo: {fileID: 5517580840173723321, guid: 7c1a86d5ecbb3804ca6309ef96f4958f,
+    type: 3}
+  WarnNoLink: {fileID: 9160244098270047969, guid: 5de10920da1c95444ae51d546c6c0e53,
+    type: 3}
+  WarnNetworkPanel1: {fileID: 7127635691300493480, guid: 022598c2dcc74bc478cfb2d6823d98fe,
+    type: 3}
+  PopupAddLikeFurn: {fileID: 263458604543887020, guid: 8111f92b9b4b1d64c869968101f717f5,
+    type: 3}
+  DeleteFurn: {fileID: 333790091673020672, guid: 9ca61afdd904cd140ad5a00138153ad9,
+    type: 3}
+  RcmFurnButton: {fileID: 2159551542648414792, guid: f05def8defad56f47ae81e829a1fbf90,
+    type: 3}
+  SearchButton: {fileID: 229102217977706609, guid: 43388daeb90f30e4ebc8bf30ea03c251,
+    type: 3}
+  MyPageButton: {fileID: 8496430195151982019, guid: c5a336e886bcf7a4395b9197d20a44d0,
+    type: 3}
+  cb_RcmFurnButton:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.5773852, g: 0.602565, b: 0.7075472, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  cb_SearchButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  cb_MyPageButton:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  IsLogIn: 0
+  categoryName: []
+  bramdName:
+  - Alias Design
+  - INART
+  - Monogram Appliances Collection
+  - Opendesk
+  moodName:
+  - Classic
+  - Modern
+  - Natural
+  - Nordic
+  - Romantic
+  - Vintage
+  - Casual
+  spaceName:
+  - bedroom
+  - living room
+  - kitchen
+  - anywhere
+  textureName:
+  - wood
+  - glass
+  - steel
+  - plastic
+  - ceramic
+  - stone
+  - leather
+  - fabric
+  - aluminium
+  - polyurethane
+  typeName:
+  - bed
+  - seat
+  - table
+  - storage
+  - etc
+  seat_subtypeName:
+  - chair
+  - sofa
+  - stools
+  - office chair
+  - pouffes
+  table_subtypeName:
+  - dinning table
+  - coffee table
+  - desk
+  - side
+  storage_subtypeName:
+  - tv stands
+  - bookshelf
+  - shelves
+  - drawers
+  etc_subtypeName:
+  - kitchen appliances
+  - divide
+  - mirror
+  - etc
+  temp_category: []
+  TopCategory: space
+  middleCategory: 
+  bottomCategory: 
+  ParentsOfmiddleCategoryButton: {fileID: 1358582094220993166, guid: ebe43501915f3ec42bf1f8504531a5ed,
+    type: 3}
+  middleCategoryButton: []
+  ParentsOfResultFurnitureButton: {fileID: 7058153782124454012, guid: 51c91862017f7fb4fbaf51f81d79d4d3,
+    type: 3}
+  ResultFurnitureButton: []
+  categorySearchIndex: 0
+  middleCategoryIndex: 0
+  MiddleCategoryButtonPrefab: {fileID: 643477887158718151, guid: 79adc5a5ef4557a4b8b626f77a9fe18c,
+    type: 3}
+  resultButtonPrefab: {fileID: 9113785473060265805, guid: 5da6f1d3a8af2a645b76a709315984a8,
+    type: 3}
+  temp_resultButtonPrefab: {fileID: 0}
+  ResultFurnList: []
+  ResultFurnList_Image: []
+  ResultFurnList_name: []
+  ResultFurnList_Like: []
+  MoreFurnButton: {fileID: 6955832124643638005, guid: 1761b16c12832af4ea9383f6a2c892b4,
+    type: 3}
+  SearchResultTitleText: {fileID: 8996458897729147493, guid: e5411e250cf9b4b499cddbd33e4a2bfc,
+    type: 3}
+  ScrollbarVertical_Search_Result: {fileID: 0}
