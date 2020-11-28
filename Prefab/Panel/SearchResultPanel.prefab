@@ -154,8 +154,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7598001993291970461}
   m_HandleRect: {fileID: 7163699680347371629}
   m_Direction: 2
-  m_Value: -7.036499
-  m_Size: 0
+  m_Value: -0.000061035156
+  m_Size: 0.95238096
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -583,7 +583,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3444763030726414726}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!114 &7740271222591653270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,7 +2067,7 @@ PrefabInstance:
     - target: {fileID: 7724657990985130706, guid: ebe43501915f3ec42bf1f8504531a5ed,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 32.145996
+      value: 4.000328
       objectReference: {fileID: 0}
     - target: {fileID: 7724657990985130706, guid: ebe43501915f3ec42bf1f8504531a5ed,
         type: 3}
@@ -2443,7 +2443,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4223832515357363742, guid: 20b5e0aef1f37bf4e91f5b07915f1623,
+      objectReference: {fileID: 3855674874665911394, guid: 20b5e0aef1f37bf4e91f5b07915f1623,
         type: 3}
     - target: {fileID: 3591548061390951970, guid: 1761b16c12832af4ea9383f6a2c892b4,
         type: 3}

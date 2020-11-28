@@ -79,7 +79,7 @@ MonoBehaviour:
     type: 3}
   FurnitureInfoPanel: {fileID: 5572401107160331463, guid: 02dc5a9d84c96d14a85c73904cb10180,
     type: 3}
-  LoadingImage: {fileID: 1173278197256052202, guid: f61b4ef605e62264fa980f43715c1fe7,
+  LoadingImage: {fileID: 602030901233102176, guid: e7c9a55faa864b94497de50fed5c883e,
     type: 3}
   user_name_Text: {fileID: 4615997768981686901, guid: f951a0f66e0c273499857dc326f70a39,
     type: 3}
@@ -291,7 +291,6 @@ MonoBehaviour:
     type: 3}
   ParentsOf_Like_ResultFurnitureButton: {fileID: 3756975986288167008, guid: 6ffddbb1f79d2a24d931e65d6eec6a7c,
     type: 3}
-  ResultFurnitureButton: []
   categorySearchIndex: 0
   middleCategoryIndex: 0
   MiddleCategoryButtonPrefab: {fileID: 643477887158718151, guid: 79adc5a5ef4557a4b8b626f77a9fe18c,
@@ -299,6 +298,12 @@ MonoBehaviour:
   resultButtonPrefab: {fileID: 9113785473060265805, guid: 5da6f1d3a8af2a645b76a709315984a8,
     type: 3}
   temp_resultButtonPrefab: {fileID: 0}
+  result_Search_ButtonPrefab: {fileID: 9113785473060265805, guid: 5da6f1d3a8af2a645b76a709315984a8,
+    type: 3}
+  result_Rcm_ButtonPrefab: {fileID: 4237475575397652626, guid: 805e7856e70c7cc41a2bc18cb8f12d84,
+    type: 3}
+  result_Like_ButtonPrefab: {fileID: 4008331809100415713, guid: b83924564f5d1a3488f7b7097608001b,
+    type: 3}
   ResultFurnList: []
   ResultFurnList_Image: []
   ResultFurnList_name: []
