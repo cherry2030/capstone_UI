@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774660752c7968646ab687a1ef83c7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nowLogin_UserID: 
+  nowLogin_DeviceID: 
   LogInPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
     type: 3}
   NowPanel: {fileID: 7254921696648372198, guid: 6c7b52906bfa98b4aa609f866e1944cf,
@@ -282,7 +284,12 @@ MonoBehaviour:
   ParentsOfmiddleCategoryButton: {fileID: 1358582094220993166, guid: ebe43501915f3ec42bf1f8504531a5ed,
     type: 3}
   middleCategoryButton: []
-  ParentsOfResultFurnitureButton: {fileID: 7058153782124454012, guid: 51c91862017f7fb4fbaf51f81d79d4d3,
+  ParentsOfResultFurnitureButton: {fileID: 0}
+  ParentsOf_Search_ResultFurnitureButton: {fileID: 7058153782124454012, guid: 51c91862017f7fb4fbaf51f81d79d4d3,
+    type: 3}
+  ParentsOf_Rcm_ResultFurnitureButton: {fileID: 5734411511506579577, guid: 82e6dbc0d227d344586dbee990c62c68,
+    type: 3}
+  ParentsOf_Like_ResultFurnitureButton: {fileID: 3756975986288167008, guid: 6ffddbb1f79d2a24d931e65d6eec6a7c,
     type: 3}
   ResultFurnitureButton: []
   categorySearchIndex: 0
@@ -296,8 +303,13 @@ MonoBehaviour:
   ResultFurnList_Image: []
   ResultFurnList_name: []
   ResultFurnList_Like: []
-  MoreFurnButton: {fileID: 6955832124643638005, guid: 1761b16c12832af4ea9383f6a2c892b4,
+  MoreFurnButton: {fileID: 0}
+  temp_MoreFurnButton: {fileID: 0}
+  SearchMoreFurnButton: {fileID: 6955832124643638005, guid: 1761b16c12832af4ea9383f6a2c892b4,
+    type: 3}
+  RcmMoreFurnButton: {fileID: 250812158443185167, guid: 5b6428245718e884da94af1c57f1bd52,
+    type: 3}
+  LikeMoreFurnButton: {fileID: 8892201948173491857, guid: d4fa920c17f0dff4ea3c32f6078bc99a,
     type: 3}
   SearchResultTitleText: {fileID: 8996458897729147493, guid: e5411e250cf9b4b499cddbd33e4a2bfc,
     type: 3}
-  ScrollbarVertical_Search_Result: {fileID: 0}
