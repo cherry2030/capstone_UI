@@ -88,7 +88,7 @@ MonoBehaviour:
   user_age_Text: {fileID: 3978268838613869649, guid: f0116c38df47f004c848b81c9c88cb39,
     type: 3}
   user_age_temp: 
-  user_sex_temp: 
+  user_sex_temp: 1
   SelectButtonColor: {r: 0.3764706, g: 0.49019608, b: 0.54509807, a: 1}
   DeselectButtonColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   manButton: {fileID: 5810655698973180710, guid: 0c1706feb4d817041a551634baff47ef,
@@ -152,6 +152,7 @@ MonoBehaviour:
     type: 3}
   MySetting_ETCRoomButton: {fileID: 872417003233594255, guid: 663ff85e7db66b84299d7dda5b6e7161,
     type: 3}
+  dropdown: {fileID: 0}
   user_housesize_Text: {fileID: 2378326585866654528, guid: 43ef72e892084164fa8f7ac10d19416e,
     type: 3}
   user_housesize_temp: 
@@ -189,6 +190,8 @@ MonoBehaviour:
     type: 3}
   DeleteFurn: {fileID: 333790091673020672, guid: 9ca61afdd904cd140ad5a00138153ad9,
     type: 3}
+  AskSelectMoodPanel: {fileID: 6309104081194638511, guid: 758fca78120593848ba271eeec867204,
+    type: 3}
   RcmFurnButton: {fileID: 2159551542648414792, guid: f05def8defad56f47ae81e829a1fbf90,
     type: 3}
   SearchButton: {fileID: 229102217977706609, guid: 43388daeb90f30e4ebc8bf30ea03c251,
@@ -220,6 +223,8 @@ MonoBehaviour:
     m_ColorMultiplier: 0
     m_FadeDuration: 0
   IsLogIn: 0
+  WordSearchPanel: {fileID: 3444763030726414726, guid: 0bb8daf7f8dd1eb4093abe1a084ef17a,
+    type: 3}
   categoryName: []
   bramdName:
   - Alias Design
@@ -295,7 +300,7 @@ MonoBehaviour:
   middleCategoryIndex: 0
   MiddleCategoryButtonPrefab: {fileID: 643477887158718151, guid: 79adc5a5ef4557a4b8b626f77a9fe18c,
     type: 3}
-  resultButtonPrefab: {fileID: 9113785473060265805, guid: 5da6f1d3a8af2a645b76a709315984a8,
+  resultButtonPrefab: {fileID: 4393934091397169985, guid: 8a0d69c8b8889be46a9a230355b1662e,
     type: 3}
   temp_resultButtonPrefab: {fileID: 0}
   result_Search_ButtonPrefab: {fileID: 9113785473060265805, guid: 5da6f1d3a8af2a645b76a709315984a8,
