@@ -2212,7 +2212,7 @@ PrefabInstance:
     - target: {fileID: 5803198186817199295, guid: 3c5cf87e68b08ae4f96beee85be98712,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 6069593421047062651, guid: 3c5cf87e68b08ae4f96beee85be98712,
         type: 3}
@@ -4296,6 +4296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914261507596887882, guid: 82cc008112312ce4b94c6f1a5036103e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4914261507596887967, guid: 82cc008112312ce4b94c6f1a5036103e,
         type: 3}
@@ -8464,11 +8469,58 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MySetting_Update_user_sex
       objectReference: {fileID: 0}
+    - target: {fileID: 5272225237404368689, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 710cf68a5bb56a846b3eb337b2faa44c,
+        type: 3}
+    - target: {fileID: 5272225237620320478, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 710cf68a5bb56a846b3eb337b2faa44c,
+        type: 3}
     - target: {fileID: 5272225237681656572, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1697956157}
+    - target: {fileID: 5272225237896884850, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225237954832600, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225237954832600, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225237954832600, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225237954832600, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1697956157}
+    - target: {fileID: 5272225237954832600, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Update_user_housesize
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225237954832600, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5272225238041916345, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8509,11 +8561,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5272225238041916345, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5272225238046710135, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1697956157}
+    - target: {fileID: 5272225238046710135, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5272225238236643974, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -8544,6 +8606,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1697956157}
+    - target: {fileID: 5272225238340061390, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5272225238401464253, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8563,6 +8630,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MySetting_Update_user_roomtype
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225238700664416, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225238700664416, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5272225238924209108, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
@@ -8589,6 +8666,11 @@ PrefabInstance:
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1697956157}
+    - target: {fileID: 5272225238969769673, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5272225239039390510, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8612,7 +8694,7 @@ PrefabInstance:
     - target: {fileID: 5272225239039390510, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BottomBarBack
+      value: CancelMysetting
       objectReference: {fileID: 0}
     - target: {fileID: 5272225239039390510, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
@@ -8744,6 +8826,27 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5272225239333145060, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225239333145060, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 710cf68a5bb56a846b3eb337b2faa44c,
+        type: 3}
+    - target: {fileID: 5272225239333145060, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225239333145060, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5512902976281433527, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8778,6 +8881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 10485760
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238597071862563475, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6254855432016453681, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
