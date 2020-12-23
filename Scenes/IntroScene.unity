@@ -7516,6 +7516,11 @@ PrefabInstance:
       propertyPath: LastPanel
       value: 
       objectReference: {fileID: 1551439152}
+    - target: {fileID: 3855674874665911394, guid: 20b5e0aef1f37bf4e91f5b07915f1623,
+        type: 3}
+      propertyPath: userNum
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3855674874665911395, guid: 20b5e0aef1f37bf4e91f5b07915f1623,
         type: 3}
       propertyPath: m_Name
@@ -8856,6 +8861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272225239333145060, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
+        type: 3}
+      propertyPath: m_Text
+      value: 1561
       objectReference: {fileID: 0}
     - target: {fileID: 5512902976281433527, guid: 66a10465e1bea3a4ab3eb0752fac48c6,
         type: 3}
