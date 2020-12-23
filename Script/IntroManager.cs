@@ -36,6 +36,11 @@ public class FurnitureData
     public string type;
     public List<string> texture;
 
+    public FurnitureData(string _furniture_index)
+    {
+        this.furnitureIndex = _furniture_index;
+    }
+
     public FurnitureData(string _furniture_brand, string _furniture_clicked, string _furniture_depth, string _furniture_height,
         string _furniture_liked, string _furniture_name, string _furniture_width, string _furniture_image,
         string _furniture_index, string _mood, string _space, string _subtype, string _type)
@@ -90,20 +95,52 @@ public class UserData
         this.user_likemood = _userlikemood;
     }
 }
+public class LikeData
+{
+    
+    public string anyevent;
+    public string furniture_index;
+    public string user_index;
+    public string like_index;
+
+    public LikeData(string _furniture_index)
+    {
+        this.furniture_index = _furniture_index;
+    }
+    /*
+    public LikeData(string _anyevent, string _furniture_index, string _user_index)
+    {
+        this.anyevent = _anyevent;
+        this.furniture_index = _furniture_index;
+        this.user_index = _user_index;
+        // this.like_index = _like_index; ,string _like_index
+    }*/
+
+    public LikeData(string _anyevent, string _furniture_index, string _user_index, string _like_index)
+    {
+        this.anyevent = _anyevent;
+        this.furniture_index = _furniture_index;
+        this.user_index = _user_index;
+        this.like_index = _like_index; 
+    }
+
+
+}
 
 public class IntroManager : MonoBehaviour
 {
     //public FurnitureData[] _fd = new FurnitureData[7];
     public List<FurnitureData> FurnitureDataList = new List<FurnitureData>();
+    public List<FurnitureData> Rcm_FurnitureDataList = new List<FurnitureData>();
+    public List<LikeData> LikeDataList = new List<LikeData>();
     public UserData UserDataList;
-
-    IEnumerator ShowLikeResult()
+    IEnumerator LoadingLikeFurn()
     {
         LoadingImage.SetActive(true);
         //List 초기화
         ResetResult();
 
-        Debug.Log(nowLogin_UserID + " ShowLikeResult 시작");
+        Debug.Log(nowLogin_UserID + "           Loading       LikeFurn 시작");
 
         FirebaseDatabase.DefaultInstance.GetReference("like").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
@@ -116,23 +153,40 @@ public class IntroManager : MonoBehaviour
                 Debug.Log(snapshot.Value.ToString());
                 foreach (var childSnapshot in snapshot.Children)
                 {
-                    Debug.Log("ShowLikeResult foreach 들어왓다" + childSnapshot.Child("user_index").Value.ToString());
+                    Debug.Log("LoadingLikeFurn foreach 들어왓다" + childSnapshot.Child("user_index").Value.ToString());
                     //Debug.Log(nowLogin_UserID);
-                    if ((string)childSnapshot.Child("user_index").Value.ToString() == nowLogin_UserID && ((string)childSnapshot.Child("event").Value.ToString() == "LIKE" || (string)childSnapshot.Child("event").Value.ToString() == "BOTH"))
+                    if ((string)childSnapshot.Child("user_index").Value.ToString() == nowLogin_UserID && (((string)childSnapshot.Child("event").Value.ToString() == "LIKE" || (string)childSnapshot.Child("event").Value.ToString() == "BOTH")))
                     {
-                        Debug.Log(childSnapshot.Child("furniture_index").Value.ToString() + "ShowLikeResult like  if문 들어왓다  " + nowLogin_UserID + ", " + childSnapshot.Child("event").Value.ToString());
+                        Debug.Log(childSnapshot.Child("furniture_index").Value.ToString() + "LoadingLikeFurn like  if문 들어왓다  " + nowLogin_UserID + ", " + childSnapshot.Child("event").Value.ToString());
                         //ResultFurnList_Image.Add(childSnapshot.Child("image").Value.ToString());
                         //Debug.Log(childSnapshot.Child("image").Value.ToString() + childSnapshot.Child("furniture_name").Value.ToString());
                         //Debug.Log("ShowLikeResult foreach foreach  들어왓다  " + childSnapshot.Child("furniture_index").Value.ToString());
 
                         string furnIndex = childSnapshot.Child("furniture_index").Value.ToString();
-                        ResultFurnList_name.Add(furnIndex);
+                        //ResultFurnList_name.Add(furnIndex);
+                        LikeDataList.Add(new LikeData(childSnapshot.Child("event").Value.ToString(),
+                            furnIndex,
+                            nowLogin_UserID,
+                            childSnapshot.Key.ToString()
+                            )) ; 
                     }
                 }
                 //Debug.Log(ResultFurnList_name[0]);
             }
         });
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
+        LoadingImage.SetActive(false);
+        //Debug.Log(ResultFurnList_name);
+        //yield return new WaitForSeconds(1);
+    }
+    IEnumerator ShowLikeResult()
+    {
+        LoadingImage.SetActive(true);
+        //List 초기화
+        ResetResult();
+
+        Debug.Log(nowLogin_UserID + " ShowLikeResult 시작");
+
         //Debug.Log(ResultFurnList_name);
         //yield return new WaitForSeconds(1);
         FirebaseDatabase.DefaultInstance.GetReference("furniture").GetValueAsync().ContinueWith(task => {
@@ -146,10 +200,10 @@ public class IntroManager : MonoBehaviour
                 //Debug.Log(snapshot.Value.ToString());
                 foreach (var childSnapshot in snapshot.Children)
                 {
-                    for (int i = 0; i < ResultFurnList_name.Count; i++)
+                    for (int i = 0; i < LikeDataList.Count; i++)
                     {
                         // Debug.Log(" foreach 들어왓다  " + childSnapshot.Child(TopCategory).Value.ToString());
-                        if (childSnapshot.Key.ToString() == ResultFurnList_name[i])
+                        if (childSnapshot.Key.ToString() == LikeDataList[i].user_index)
                         {
                             FurnitureDataList.Add(new FurnitureData(
                             childSnapshot.Child("furniture_brand").Value.ToString(),
@@ -168,6 +222,7 @@ public class IntroManager : MonoBehaviour
                            ));
 
                             Debug.Log("ShowLikeResult furniture  if문 들어왓다  " + childSnapshot.Child("image").Value.ToString());
+                            ResultFurnList_name.Add(LikeDataList[i].furniture_index);
                             ResultFurnList_Image.Add(childSnapshot.Child("image").Value.ToString());
                             //Debug.Log(childSnapshot.Child("image").Value.ToString() + childSnapshot.Child("furniture_name").Value.ToString());
 
@@ -179,6 +234,40 @@ public class IntroManager : MonoBehaviour
             PushMoreFurnButton();
             LoadingImage.SetActive(false);
         });
+
+        yield return new WaitForSeconds(4);
+    }
+
+    IEnumerator LoadingReccomendFurn()
+    {
+        LoadingImage.SetActive(true);
+        //List 초기화
+        ResetResult();
+        Debug.Log(nowLogin_UserID + " showRecommendResult 시작");
+
+        FirebaseDatabase.DefaultInstance.GetReference("recommendation").Child(nowLogin_UserID).GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("failed");
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("showRecommendResult foreach  if문 들어왓다  " + nowLogin_UserID);
+
+                foreach (var snapshot in task.Result.Children)
+                {
+                    Debug.Log("showRecommendResult  foreach  들어왓다  " + snapshot.Value.ToString());
+                    string furnIndex = (string)snapshot.Value.ToString();
+                    //Debug.Log("!" + furnIndex);
+                    // ResultFurnList_name.Add(furnIndex);
+                    Rcm_FurnitureDataList.Add(new FurnitureData(furnIndex));
+                }
+            }
+        });
+
+        yield return new WaitForSeconds(2);
+        LoadingImage.SetActive(false);
     }
 
     IEnumerator ShowRecommendResult()
@@ -188,28 +277,6 @@ public class IntroManager : MonoBehaviour
         ResetResult();
         Debug.Log(nowLogin_UserID + " showRecommendResult 시작");
 
-        FirebaseDatabase.DefaultInstance.GetReference("recommendation").Child(nowLogin_UserID).GetValueAsync().ContinueWith(task => 
-        {
-
-            if (task.IsFaulted)
-            {
-                Debug.Log("failed");
-            }
-            else if (task.IsCompleted)
-            {
-                Debug.Log("showRecommendResult foreach  if문 들어왓다  " + nowLogin_UserID);
-
-                 foreach (var snapshot in task.Result.Children)
-                {
-                    Debug.Log("showRecommendResult  foreach  들어왓다  " + snapshot.Value.ToString());
-                    string furnIndex = (string)snapshot.Value.ToString();
-                    //Debug.Log("!" + furnIndex);
-                    ResultFurnList_name.Add(furnIndex);
-                }
-            }
-
-        });
-
         yield return new WaitForSeconds(4);
         FirebaseDatabase.DefaultInstance.GetReference("furniture").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
@@ -218,22 +285,23 @@ public class IntroManager : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
-                Debug.Log("숫자"+ResultFurnList_name.Count);
+                Debug.Log("숫자"+ Rcm_FurnitureDataList.Count);
                 DataSnapshot snapshot = task.Result;
                 //Debug.Log(snapshot.Value.ToString());
                 foreach (var childSnapshot in snapshot.Children)
                 {
                     //Debug.Log(" foreach 들어왓다  " + childSnapshot.Child(TopCategory).Value.ToString());
-                    for (int i = 0; i < ResultFurnList_name.Count; i++)
+                    for (int i = 0; i < Rcm_FurnitureDataList.Count; i++)
                     {
                         //Debug.Log(ResultFurnList_name[i] + "<" + childSnapshot.Key.ToString());
                         //Debug.Log(" foreach 들어왓다  " + childSnapshot.Child(TopCategory).Value.ToString());
-                        if (childSnapshot.Key.ToString() == ResultFurnList_name[i])
+                        if (childSnapshot.Key.ToString() == Rcm_FurnitureDataList[i].furnitureIndex)
                         {
                             Debug.Log("Recommendation furniture  if문 들어왓다  " + nowLogin_UserID);
+                            ResultFurnList_name.Add(Rcm_FurnitureDataList[i].furnitureIndex);
                             ResultFurnList_Image.Add(childSnapshot.Child("image").Value.ToString());
                             Debug.Log(childSnapshot.Child("image").Value.ToString() + childSnapshot.Child("furniture_name").Value.ToString());
-                            FurnitureDataList.Add(new FurnitureData(
+                            FurnitureDataList[i] =new FurnitureData(
                             childSnapshot.Child("furniture_brand").Value.ToString(),
                             childSnapshot.Child("furniture_clicked").Value.ToString(),
                             childSnapshot.Child("furniture_depth").Value.ToString(),
@@ -247,7 +315,7 @@ public class IntroManager : MonoBehaviour
                             childSnapshot.Child("space").Value.ToString(),
                             childSnapshot.Child("subtype").Value.ToString(),
                             childSnapshot.Child("type").Value.ToString()
-                           ));
+                           );
 
                             break;
                         }
@@ -258,6 +326,7 @@ public class IntroManager : MonoBehaviour
             PushMoreFurnButton();
             LoadingImage.SetActive(false);
         });
+        yield return new WaitForSeconds(4);
 
     }
     // public List<Button> RcmResultFurnList = new List<Button>();
@@ -319,6 +388,7 @@ public class IntroManager : MonoBehaviour
     private float screenRatio;
     void Start()
     {
+        Debug.Log(Application.dataPath);
         //FurnitureDataList = new List<FurnitureData>();
         /*
         screenRatio = (float)Screen.width / (float)Screen.height;
@@ -588,7 +658,7 @@ public class IntroManager : MonoBehaviour
         OpenAskSelectMood(LikeMoodButton[selectedIndex].transform.FindChild("Background").GetComponent<Image>().sprite, user_likemood_temp);
     }
 
-    public int userNum = 1;
+    public int userNum = 2;
     private void writeNewUser_Test(string _username, string _useremail, string _userage, string _usersex,
         string _userhousesize, string _userroomtype, string _userindex, string _userlikemood)
     {
@@ -831,6 +901,8 @@ public class IntroManager : MonoBehaviour
     }
     public void OpenLogReadyPanel()
     {
+        StartCoroutine(LoadingReccomendFurn());
+        StartCoroutine(LoadingLikeFurn());
         IsLogIn = true;
         NowPanel.SetActive(false);
         LastPanel = NowPanel;
@@ -843,7 +915,6 @@ public class IntroManager : MonoBehaviour
     public void OpenRcmFurnPanel()
     {
         //cb_RcmFurnButton = RcmFurnButton.colors;
-        ResetResult();
         LastPanel = NowPanel;
         BeforeBottomPanelChoose = NowPanel;
         Debug.Log("open rcm furn panel");
@@ -854,7 +925,6 @@ public class IntroManager : MonoBehaviour
     }
     public void OpenSearchPanel()
     {
-        ResetResult();
         LastPanel = NowPanel;
         BeforeBottomPanelChoose = NowPanel;
         Debug.Log("openOpenSearchPanel");
@@ -866,7 +936,6 @@ public class IntroManager : MonoBehaviour
     public GameObject WordSearchPanel;
     public void OpenWordSearchPanel()
     {
-        ResetResult();
         LastPanel = NowPanel;
         //BeforeBottomPanelChoose = NowPanel;
         Debug.Log("OpenWordSearchPanel");
@@ -878,7 +947,6 @@ public class IntroManager : MonoBehaviour
 
     public void OpenMyPagePanel()
     {
-        ResetResult();
         LastPanel = NowPanel;
         BeforeBottomPanelChoose = NowPanel;
         NowPanel.SetActive(false);
@@ -889,7 +957,6 @@ public class IntroManager : MonoBehaviour
 
     public void OpenMyLikePanel()
     {
-        ResetResult();
         LastPanel = NowPanel;
         NowPanel.SetActive(false);
         MyLikePanel.SetActive(true);
@@ -925,15 +992,25 @@ public class IntroManager : MonoBehaviour
            );
 
         NowPanel = MySettingPanel;
-        MySettingPanel.transform.FindChild("User_Name_InputField").GetComponent<InputField>().text = UserDataList.user_name;
+        //이 세줄에서 범위 out이 일어나는거같은데 
+
+        Debug.Log(MySettingPanel.transform.FindChild("User_Name_InputField").GetComponent<InputField>().text);
+        Debug.Log(MySettingPanel.transform.FindChild("User_Name_InputField").GetComponent<InputField>().textComponent.text);
+        MySettingPanel.transform.FindChild("User_Name_InputField").GetComponent<InputField>().textComponent.text = UserDataList.user_name;
         //transform.FindChild("Text").GetComponent<Text>().text = UserDataList.user_name;
-        MySettingPanel.transform.FindChild("User_Age_InputField2").GetComponent<InputField>().text = UserDataList.user_age;
+        Debug.Log(MySettingPanel.transform.FindChild("User_Age_InputField2").GetComponent<InputField>().text);
+        Debug.Log(MySettingPanel.transform.FindChild("User_Age_InputField2").GetComponent<InputField>().textComponent.text);
+        MySettingPanel.transform.FindChild("User_Age_InputField2").GetComponent<InputField>().textComponent.text = UserDataList.user_age;
         //transform.FindChild("Text").GetComponent<Text>().text = UserDataList.user_age;
-        MySettingPanel.transform.FindChild("User_HouseSIze_InputField2").GetComponent<InputField>().text = UserDataList.user_housesize;
+        Debug.Log(MySettingPanel.transform.FindChild("User_HouseSIze_InputField2").GetComponent<InputField>().text);
+        Debug.Log(MySettingPanel.transform.FindChild("User_HouseSIze_InputField2").GetComponent<InputField>().textComponent.text);
+         MySettingPanel.transform.FindChild("User_HouseSIze_InputField2").GetComponent<InputField>().textComponent.text = UserDataList.user_housesize;
         //transform.FindChild("Text").GetComponent<Text>().text = UserDataList.user_housesize;
         MySetting_Update_user_sex(UserDataList.user_sex);
         MySetting_Update_user_roomtype(UserDataList.user_roomtype);
         MySettingPanel.transform.FindChild("User_LikeMood_Furniture_Select").transform.FindChild("Text").GetComponent<Text>().text = UserDataList.user_likemood;
+        
+        
         Debug.Log(" OpenMySettingPanel  text 바꾸고 난 뒤 "
           + MySettingPanel.transform.FindChild("User_Name_InputField").GetComponent<InputField>().text + "이름 "
           + MySettingPanel.transform.FindChild("User_Age_InputField2").GetComponent<InputField>().text + " 살 "
@@ -970,15 +1047,10 @@ public class IntroManager : MonoBehaviour
         BeforeBottomPanelChoose.SetActive(true);
         NowPanel = BeforeBottomPanelChoose;
     }
-    public void ResetResult()
-    {
 
-        //if (NowPanel == SearchResultPanel || NowPanel == MyLikePanel || NowPanel == RcmFurnPanel)
-        //{
-        /*
-        ParentsOfResultFurnitureButton.gameObject.SetActive(false);
-        ParentsOfmiddleCategoryButton.gameObject.SetActive(false);
-        */
+    public void ResetMiddleCategory()
+    {
+        SearchPanel.transform.FindChild("InputField").GetComponent<InputField>().text = "";
         //중메뉴삭제
         if (middleCategoryIndex > 0)
         {
@@ -992,6 +1064,16 @@ public class IntroManager : MonoBehaviour
                 temp_category = new string[0];
             }
         }
+    }
+    public void ResetResult()
+    {
+
+        //if (NowPanel == SearchResultPanel || NowPanel == MyLikePanel || NowPanel == RcmFurnPanel)
+        //{
+        /*
+        ParentsOfResultFurnitureButton.gameObject.SetActive(false);
+        ParentsOfmiddleCategoryButton.gameObject.SetActive(false);
+        */
         //결과 가구들 삭제
         if (ResultFurnList.Count > 0)
             {
@@ -1064,6 +1146,56 @@ public class IntroManager : MonoBehaviour
         NowPanel.SetActive(false);
         LastPanel.SetActive(true);
         NowPanel = LastPanel;
+    }
+    private bool nowLike, isReseted = false;
+    public void Push_LikeButton(int _tempindex,FurnitureData _fd,Button _bt,LikeData _ld)
+    {        
+        if (nowLike)
+        {
+            GameObject.Find("DeleteFurn").SetActive(true);
+            GameObject.Find("DeleteFurn").transform.FindChild("OKButton").GetComponent<Button>().onClick.AddListener
+                (() => Delete_LikeData( _tempindex, _fd,_bt, _ld));
+        }
+        else
+        {            
+            GameObject.Find("PopupAddLikeFurn").SetActive(true);
+            GameObject.Find("PopupAddLikeFurn").transform.FindChild("Button").GetComponent<Button>().onClick.AddListener
+                (() => Add_LikeData( _tempindex, _fd,_bt, _ld));
+        }
+    }
+
+    
+
+    public void Delete_LikeData( int _tempindex, FurnitureData _fd, Button _bt,LikeData _ld)
+    {
+        _bt.GetComponent<Image>().sprite = Resources.Load("image/searchresult_빈하투사진", typeof(Sprite)) as Sprite;
+        
+        nowLike = false;
+        if(mDatabaseRef.Child("like").Child(_ld.like_index).Child("event").GetValueAsync().ToString() =="BOTH")
+        {
+            mDatabaseRef.Child("like").Child(_ld.like_index).Child("event").SetValueAsync("LINKCLICKED");
+        }
+        else
+        {
+            mDatabaseRef.Child("like").Child(_ld.like_index).Child("event").SetValueAsync("VIEW");
+        }
+        _ld = null;
+    }
+    public int special_Likedat_index = 0;
+    public void Add_LikeData(int _tempindex, FurnitureData _fd, Button _bt, LikeData _ld)
+    {
+        _bt.GetComponent<Image>().sprite = Resources.Load("image/searchresult_꽉찬하투사진", typeof(Sprite)) as Sprite;
+
+        string json = JsonUtility.ToJson(new LikeData("LIKE", _fd.furnitureIndex, nowLogin_UserID, special_Likedat_index.ToString()));
+        LikeDataList.Add(new LikeData("LIKE", _fd.furnitureIndex, nowLogin_UserID, (special_Likedat_index).ToString()));
+        nowLike = true;
+        //Rank rank = new Rank("나일등", 100, 1574940551);
+        
+
+        string key = mDatabaseRef.Child("like").Push().Key;
+        mDatabaseRef.Child("like").Child(key).SetValueAsync((special_Likedat_index).ToString());
+        mDatabaseRef.Child("like").Child(key).SetRawJsonValueAsync(json);
+        special_Likedat_index++;
     }
 
 
@@ -1442,6 +1574,7 @@ public class IntroManager : MonoBehaviour
             }
         }
         */
+        ResetMiddleCategory();
         ResetResult();
         TopCategory = _selectdCategory;
         Debug.Log("select category" + _selectdCategory + TopCategory);
@@ -1585,20 +1718,16 @@ public class IntroManager : MonoBehaviour
         {
             Debug.Log("NowPanel = RcmFurnPanel)");
             RcmMoreFurnButton.SetActive(false);
-            //  temp_MoreFurnButton.transform.SetParent(RcmFurnPanel.transform);
-
-        } //  ResultFurnList[i].transform.SetParent(ParentsOf_Rcm_ResultFurnitureButton.transform);
+        } 
         else if (NowPanel = MyLikePanel)
         {
             Debug.Log("  else if (NowPanel = MyLikePanel)");
             LikeMoreFurnButton.SetActive(false);
-            //  temp_MoreFurnButton.transform.SetParent(MyLikePanel.transform);
         }
         else if (NowPanel = WordSearchPanel)
         {
             Debug.Log("  else if (NowPanel = WordSearchPanel)");
             WordSearchPanel.transform.FindChild("MoreFurnButton").gameObject.SetActive(false);
-            //  temp_MoreFurnButton.transform.SetParent(MyLikePanel.transform);
         }
         else if (NowPanel = RcmFurnPanel)
         {
@@ -1749,8 +1878,26 @@ public class IntroManager : MonoBehaviour
         Rect rect = new Rect(0, 0, 232, 271);
         ResultFurnList[i].transform.FindChild("Image").GetComponent<Image>().sprite = LoadFurnitureImage(FurnitureDataList[i].furnitureImageAddress);// Resources.Load("furnImage/" + imageName, typeof(Sprite)) as Sprite;//     Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
         yield return new WaitForSeconds(5);
-        ResultFurnList[i].onClick.AddListener(() => OpenFurnitureInfoPanel(FurnitureDataList[i]));//delegate () { ShowResultFurn(temp_category[categorySearchIndex]); }
-
+        ResultFurnList[i].transform.FindChild("Image").GetComponent<Button>().onClick.AddListener(() 
+            => OpenFurnitureInfoPanel(FurnitureDataList[i]));//delegate () { ShowResultFurn(temp_category[categorySearchIndex]); }
+       
+        for (int k = 0; k < LikeDataList.Count; k++)
+        {
+            if (ResultFurnList_name[i] == LikeDataList[k].furniture_index)
+            {
+                ResultFurnList[i].GetComponent<Image>().sprite = Resources.Load("image/searchresult_꽉찬하투사진", typeof(Sprite)) as Sprite;
+                ResultFurnList[i].transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(()
+                  => Push_LikeButton(i, FurnitureDataList[i], ResultFurnList[i], LikeDataList[k]));
+                nowLike = true;
+            }
+            else
+            {
+                ResultFurnList[i].GetComponent<Image>().sprite = Resources.Load("image/searchresult_빈하투사진", typeof(Sprite)) as Sprite;
+                ResultFurnList[i].transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(()
+                  => Push_LikeButton(i, FurnitureDataList[i], ResultFurnList[i],null));
+                nowLike = false;
+            }
+        }
         //ResultFurnList[i].gameObject.SetActive(false);
         ResultFurnList[i].gameObject.SetActive(true);
 
@@ -1791,6 +1938,7 @@ public class IntroManager : MonoBehaviour
 
     public void ShowWordSearchedFurn()
     {
+        ResetMiddleCategory();
         ResetResult();
         string _searchString = SearchPanel.transform.FindChild("InputField").GetComponent<InputField>().text;
         Debug.Log(_searchString + "show ShowWordSearchedFurn 시작");
@@ -1896,6 +2044,7 @@ public class IntroManager : MonoBehaviour
         OpenSearchResultPanel();
         //LoadingImage.SetActive(true);
         //List 초기화
+        ResetMiddleCategory();
         ResetResult();
         Debug.Log(_searchString + "show result 시작");
 
