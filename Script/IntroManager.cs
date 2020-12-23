@@ -292,15 +292,15 @@ public class IntroManager : MonoBehaviour
                         nowLogin_DeviceID = temp_deviceID;
 
                         UserDataList = new UserData(
-                                    mDatabaseRef.Child("user").Child("user_1").Child("user_age").ToString()
-                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_email").ToString()
-                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_age").ToString()
-                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_sex").ToString()
-                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_housesize").ToString()
+                                    mDatabaseRef.Child("user").Child("user_1").Child("user_name").GetValueAsync().Result.Value.ToString() 
+                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_email").GetValueAsync().Result.Value.ToString()
+                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_age").GetValueAsync().Result.Value.ToString()
+                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_sex").GetValueAsync().Result.Value.ToString()
+                                    , mDatabaseRef.Child("user").Child("user_1").Child("user_housesize").GetValueAsync().Result.Value.ToString()
                                , mDatabaseRef.Child("user").Child("user_1").Child("user_roomtype").ToString()
                                , userNum.ToString()
-                               , mDatabaseRef.Child("user").Child("user_1").Child("user_likemood").ToString()
-                               );   
+                               , mDatabaseRef.Child("user").Child("user_1").Child("user_likemood").GetValueAsync().Result.Value.ToString()
+                               ); ;   
 
                         break;
                     }
@@ -975,11 +975,25 @@ public class IntroManager : MonoBehaviour
 
         //if (NowPanel == SearchResultPanel || NowPanel == MyLikePanel || NowPanel == RcmFurnPanel)
         //{
-            /*
-            ParentsOfResultFurnitureButton.gameObject.SetActive(false);
-            ParentsOfmiddleCategoryButton.gameObject.SetActive(false);
-            */
-            if (ResultFurnList.Count > 0)
+        /*
+        ParentsOfResultFurnitureButton.gameObject.SetActive(false);
+        ParentsOfmiddleCategoryButton.gameObject.SetActive(false);
+        */
+        //중메뉴삭제
+        if (middleCategoryIndex > 0)
+        {
+            middleCategoryIndex = 0;
+            for (int i = 0; i < middleCategoryButton.Length; i++)
+            {
+                Debug.Log(i + "middlecategory 초기화 ㅍ괴 " + middleCategoryButton.Length);
+                Destroy(middleCategoryButton[i].gameObject);
+                middleCategoryButton[i] = null;
+                // temp_category[i] = null;
+                temp_category = new string[0];
+            }
+        }
+        //결과 가구들 삭제
+        if (ResultFurnList.Count > 0)
             {
                 for (int i = 0; i < ResultFurnList.Count; i++)
                 {
@@ -990,7 +1004,7 @@ public class IntroManager : MonoBehaviour
                 ResultFurnList_name.Clear();
                 categorySearchIndex = 0;
             }
-
+        //가구결과를 담아놓은 변수 초기화
             if (FurnitureDataList.Count > 0)
             {
                 FurnitureDataList.Clear();
@@ -1414,6 +1428,7 @@ public class IntroManager : MonoBehaviour
     {
         ParentsOfmiddleCategoryButton.gameObject.SetActive(true);
         SearchResultTitleText.text = _selectdCategory;
+        /*
         if (middleCategoryIndex > 0)
         {
             middleCategoryIndex = 0;
@@ -1426,7 +1441,8 @@ public class IntroManager : MonoBehaviour
                 temp_category = new string[0];
             }
         }
-
+        */
+        ResetResult();
         TopCategory = _selectdCategory;
         Debug.Log("select category" + _selectdCategory + TopCategory);
         switch (_selectdCategory)
@@ -1774,7 +1790,8 @@ public class IntroManager : MonoBehaviour
     */
 
     public void ShowWordSearchedFurn()
-    {        
+    {
+        ResetResult();
         string _searchString = SearchPanel.transform.FindChild("InputField").GetComponent<InputField>().text;
         Debug.Log(_searchString + "show ShowWordSearchedFurn 시작");
         WordSearchPanel.transform.FindChild("InputField").GetComponent<InputField>().text = _searchString;
@@ -1879,7 +1896,7 @@ public class IntroManager : MonoBehaviour
         OpenSearchResultPanel();
         //LoadingImage.SetActive(true);
         //List 초기화
-        //ResetResult();
+        ResetResult();
         Debug.Log(_searchString + "show result 시작");
 
         FirebaseDatabase.DefaultInstance.GetReference("furniture").GetValueAsync().ContinueWith(task => {
